@@ -35,34 +35,18 @@
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         
         <![endif]-->
-        <style type="text/css">
-            #navegador ul{
-               list-style-type: none;
-              
-            }
-            #navegador li{
-               display: inline;
-               text-align: center;
-               margin: 0 10px 0 0;
-            }
-            #navegador li a {
-               padding: 2px 7px 2px 7px;
-               color: #666;
-               background-color: #eeeeee;
-               border: 1px solid #ccc;
-               text-decoration: none;
-            }
-            #navegador li a:hover{
-               background-color: #333333;
-               color: #ffffff;
-            }
-               </style>
+      
             </head>
             
             <body>
     </head>
     <body>
 
+     <?php
+        require_once('funciones/funciones.php');
+     ?>
+ <?php session_start();
+       ?>
         <!--================Search Area =================-->
         <section class="search_area">
             <div class="search_inner">
@@ -75,21 +59,41 @@
         <!--================Header Menu Area =================-->
         <header class="main_menu_area">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <a class="navbar-brand" href="#"><img src="img/logo.png" alt=""></a>
+                <a class="navbar-brand" href="#"><p>LagerHaus</p></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
-                        <li class="nav-item active"><a class="nav-link" href="index.html">Inicio</a></li>
+                        <li class="nav-item active"><a class="nav-link" href="index.php">Inicio</a></li>
                         <li class="nav-item"><a class="nav-link" href="carta.php">Carta</a></li>
-                        <li class="nav-item"><a  href="static.html">Promociones</a></li>
-                        <li class="nav-item"><a class="nav-link" href="contact-us.html">Locales</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contact-us.php">Locales</a></li>
+                        <li class="nav-item"><a class="nav-link" href="login.php">
+                        <?php  
+                        if(isset($_SESSION['idUsuario'])) {
+                            $nombreUsuario= $_SESSION['nombre'];
+                            echo "Bienvenido " .$nombreUsuario;
+                              
+
+                             } else{
+                                 echo "Iniciar Sesion" ;
+                             }
+                             
+                        ?>
+                         </a></li>
+                         <li class="nav-item"><a class="nav-link" href="logout.php"> 
+                             
+                         <?php  
+                        if(isset($_SESSION['idUsuario'])) {
+                            $nombreUsuario= $_SESSION['nombre'];
+                            echo "Cerrar Sesion ";
+                             }       
+                        ?>
+                         </a></li>
                     </ul>
-                    <ul class="navbar-nav justify-content-end">
-                        <li><a href="#"><i class="icon_search"></i></a></li>
-                        <li><a href="#"><i class="icon_bag_alt"></i></a></li>
+             
+              
                     </ul>
                 </div>
             </nav>
@@ -100,8 +104,8 @@
         <section class="banner_area" style="background:url(img/lagerHaus/24.jpg);" >
             <div class="container">
                 <div class="banner_text_inner">
-                    <h4>Contact Us</h4>
-                    <h5>Tell us about your story and your project.</h5>
+                    <h4>Contactate con nosotros</h4>
+                    <h5>Reservá el día que quieras</h5>
                 </div>
             </div>
         </section>
@@ -111,32 +115,39 @@
         <section class="contact_us_area">
             <div class="container">
                     <div class="main_title">
-                            <h2>Seguinos en nuestras redes:</h2>
-                        </div>
-                        <div id="navegador" style="margin-top:10px">
-                                <ul>
-                                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                                </ul>
+                        <h2>Seguinos en nuestras redes!:</h2>
+                    </div>
+                    <div class="static_social ">
+                        <ul>
+                            <div class="row" style="margin-top:20px;margin-left:10px">
+                                <div class="col-1">
+                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                </div>
+                                <div class="col-1">
+                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                </div>
+                                <div class="col-1">
+                                    <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                                </div>
+                                <div class="col-1">
+                                    <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                                </div>
+                            </div> 
+                                <div class="col-8">
+                                </div>
+                             
+                               
+                           
+                              
+                            </ul>
                         </div>
                  <div class="contact_d_list_item">
                         <div class="static_social">
 
                               
                             </div>
-                   
-                <div id="mapBox" class="mapBox row m0" style="margin-top:30px" 
-                    data-lat="1.30921"
-                    data-lon="103.8509813"
-                    data-zoom="14"
-                    data-marker="img/map-marker.png"
-                    data-info="Broadway Hotel"
-                    data-mlat="1.30921"
-                    data-mlon="103.8509813">
-                    
-                </div>
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3284.0579873011848!2d-58.508719084591995!3d-34.60269516495137!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcb6328fd8dbd3%3A0x4eb882baf48a22bd!2sCervecer%C3%ADa+LagerHaus!5e0!3m2!1ses-419!2sar!4v1553616559405" width="1100" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+
                 <div class="contact_details_inner">
                     <div class="row">
                         <div class="col-lg-6">
@@ -180,7 +191,7 @@
                                        
                                     </div>
                                 </div>
-                                <div class="static_social">
+                                <div class="static_social ">
                                     <div class="main_title">
                                         <h2>Seguinos en nuestras redes!:</h2>
                                     </div>
@@ -199,7 +210,7 @@
                                     <h2>Reservá tu mesa para vos y tus amigos!</h2>
                                     <p>Contanos con cuantas personas venís, el horario y listo!</p>
                                 </div>
-                                <form class="contact_us_form row" action="mensajes.php" method="post" id="contactForm" novalidate="novalidate">
+                                <form class=" row" action="mail.php" method="post" id="contactForm">
                                     <div class="form-group col-lg-12">
                                         <input type="text" class="form-control" id="name" name="name" placeholder="Nombre">
                                     </div>
@@ -212,8 +223,8 @@
                                     </div>
                                     <div class="form-group col-md-12">
                                             
-                                                    <button type="submit" value="submit" class="btn submit_btn2 form-control">Enviar reserva</button>
-                                                    <button type="submit" value="submit" class="btn  btn-secondary form-control" style="width:500px;margin-top:10px"> <p style="margin-left:10px;margin-right:10px"> Ó también podés reservar a través de nuestro Instagram </p></button>
+                                                    <button type="submit" value="submit" name="submit" class="btn submit_btn2 form-control">Enviar reserva</button>
+                                                    <!-- <button type="submit" value="submit" class="btn  btn-secondary form-control" style="width:500px;margin-top:10px"> <p style="margin-left:10px;margin-right:10px"> Ó también podés reservar a través de nuestro Instagram </p></button> -->
                                     </div>
                                 </form>
                             </div>
@@ -229,18 +240,13 @@
             <div class="footer_widgets_area">
                 <div class="container">
                     <div class="f_widgets_inner row">
-                        <div class="col-lg-4 col-md-6">
+                        <div class="col-lg-3 col-md-6">
                             <aside class="f_widget subscribe_widget">
                                 <div class="f_w_title">
-                                    <h3>Our Newsletter</h3>
+                                    <h3>Nuestras redes</h3>
                                 </div>
-                                <p>Subscribe to our mailing list to get the updates to your email inbox.</p>
-                                <div class="input-group">
-                                    <input type="email" class="form-control" placeholder="E-mail" aria-label="E-mail">
-                                    <span class="input-group-btn">
-                                        <button class="btn btn-secondary submit_btn" type="button">Subscribe</button>
-                                    </span>
-                                </div>
+                                <p>Seguinos y enterate de las mejores novedades.</p>
+                               
                                 <ul>
                                     <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                                     <li><a href="#"><i class="fa fa-twitter"></i></a></li>
@@ -250,53 +256,41 @@
                                 </ul>
                             </aside>
                         </div>
-                        <div class="col-lg-4 col-md-6">
+                        <div class="col-lg-3 col-md-6">
                             <aside class="f_widget twitter_widget">
                                 <div class="f_w_title">
-                                    <h3>Twitter Feed</h3>
+                                  
                                 </div>
-                                <div class="tweets_feed"></div>
+                             
                             </aside>
                         </div>
-                       
-                        <div class="col-lg-4 col-md-6">
+                        <div class="col-lg-3 col-md-6">
+                            <aside class="f_widget categories_widget">
+                                <div class="f_w_title">
+                                    
+                                </div>
+                                <ul>
+                                  
+                                </ul>
+                                <ul>
+                                   
+                                </ul>
+                            </aside>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
                             <aside class="f_widget contact_widget">
                                 <div class="f_w_title">
-                                    <h3>Contact Us</h3>
+                                    <h3>Contactanos</h3>
                                 </div>
                                 <a href="#">1 (800) 686-6688</a>
-                                <a href="#">info.deercreative@gmail.com</a>
-                                <p>Av. Francisco Beiró 3834<br /> Buenos Aires, Capital Federal</p>
-                              
+                                <a href="#">LagerHaus@gmail.com</a>
+                                <p>Av beiro <br />Villa Devoto, CABA</p>
+                                
                             </aside>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="copy_right_area">
-                <div class="container">
-                    <div class="float-md-left">
-                        <h5>Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a></h5>
-                    </div>
-                    <div class="float-md-right">
-                        <ul class="nav">
-                            <li class="nav-item">
-                                <a class="nav-link active" href="#">Disclaimer</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Privacy</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Advertisement</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Contact us</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </footer>
         <!--================End Footer Area =================-->
 
         <!--================Contact Success and Error message Area =================-->
@@ -363,7 +357,7 @@
         <!-- contact js -->
         <script src="js/jquery.form.js"></script>
         <script src="js/jquery.validate.min.js"></script>
-        <script src="js/contact.js"></script>
+      
 
         <script src="js/theme.js"></script>
     </body>

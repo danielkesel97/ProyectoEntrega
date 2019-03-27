@@ -1,32 +1,22 @@
 <?php
-$conexion= mysqli_connect("localhost","root","","lager_haus") or die(mysqli_error($conexion));
+require_once('funciones/funciones.php');
 
 
-if(isset($_POST['name']) && isset($POST['email']) && isset($POST['message'])) {
+if(isset($_POST['name']) && isset($_POST['email']) && isset($_POST['message'])) {
     $nombre = $_POST['name'];
     $email = $_POST['email'] ;
     $mensaje = $_POST ['message'];
 
-$escrituraMensaje = mysqli_query($conexion,"SELECT id,nombre from reservas where nombre = '$nombre'") or die(mysqli_error($conexion));
-
-$mensajeEnviado = mysqli_query($conexion,"INSERT into reservas (nombre,email,mmensaje) values ('$nombre','$email','$mensaje')") or die(mysqli_error($conexion));
-if($mensajeEnviado) = {
-    echo 'Mensaje enviado correctamente';
+$mensajeEnviado = mysqli_query($conexion,"INSERT into reservas (nombre,email,mensaje) values ('$nombre','$email','$mensaje')") or die(mysqli_error($conexion));
+if($mensajeEnviado)  {
+    header("location:contact-us.php");
 }
 
 else{
     echo 'Ha ocurrido un error';
 }
-
-} else {
-    echo 'Debe completar los datos'
+} else{
+    echo "Debes completar tus datos";
 }
-
-
-
-
-
-
-
 
 ?>

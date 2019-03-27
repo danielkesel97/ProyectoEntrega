@@ -47,103 +47,103 @@
         <!--================End Search Area =================-->
 
         <!--================Header Menu Area =================-->
-        <header class="main_menu_area">
+        <header class="main_menu_area" style="background:black;">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <a class="navbar-brand" href="#"><img src="img/logo.png" alt=""></a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+                <a class="navbar-brand" href="#"> <p style="color:white;font-size:40px">LagerHaus</p></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"></button>
+                    <span></span>
+                    <span></span>
+                    <span></span>
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
-                        <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Carta</a></li>
+                        <li class="nav-item active"><a class="nav-link" href="index.php">Inicio</a></li>
+                        <li class="nav-item"><a class="nav-link" href="carta.php">Carta</a></li>
                         <li class="nav-item"><a  href="static.html">Promociones</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Locales</a></li>
-                      
+                        <li class="nav-item"><a class="nav-link" href="contact-us.php">Locales</a></li>
                     </ul>
                     <ul class="navbar-nav justify-content-end">
                         <li><a href="#"><i class="icon_search"></i></a></li>
-                        <li><a href="#"><i class="icon_bag_alt" style="color:aqua"></i></a></li>
+                        <li><a href="Login.html"><i class="icon_bag_alt"></i></a></li>
                     </ul>
                 </div>
             </nav>
         </header>
-        <!--================End Header Menu Area =================-->
+   
+        <?php 
+	if(isset($_GET['error'])) {
+		$error = $_GET['error']; 
+		if($error == "si") {
+			$mensaje = "El usuario existe";
 
-        <!--================Banner Area =================-->
-        
-        <!--================End Banner Area =================-->
+		}
+	} else {
+		// http://localhost:8080/proyecto-master/createUser.php
+		$mensaje = NULL;
+    }
+    if(isset($_GET['coincide'])) {
+		$coincide = $_GET['coincide']; 
+		if($coincide == "no") {
+			$mensaje2 = "Las contraseñas no coinciden";
 
-        <!--================Static Area =================-->
-        <section class="static_area" style="background:black">
-            <div class="container-fluid" style="background:black">
-                <div class="static_inner">
-                    <div class="row">
-                        <div class="col-6" >
-                            <div class="card">
-                                <article class="card-body">
-                                    <h4 class="card-title text-center mb-4 mt-1">Sign in</h4>
-                                     <hr>
-                                              
-                                        <form action="registrousuario.php" method="POST">
-                                            <div class="form-group">
-                                                <div class="input-group">
-                                                    <div class="input-group-prepend">
-                                                        <span class="input-group-text"> <i class="fa fa-user"></i> </span>
-                                                     </div>
-                                                    <input name="correo" class="form-control" placeholder="Correo" type="email">
-                                                </div> <!-- input-group.// -->
-                                                <div class="input-group" style="margin-top:15px">
-                                                        <div class="input-group-prepend">
-                                                            <span class="input-group-text"> <i class="fa fa-user"></i> </span>
-                                                         </div>
-                                                        <input name="usuario" class="form-control" placeholder="Usuario" type="text">
-                                                    </div>
-                                                    <div class="input-group" style="margin-top:15px">
-                                                            <div class="input-group-prepend">
-                                                                <span class="input-group-text"> <i class="fa fa-user"></i> </span>
-                                                             </div>
-                                                            <input name="password" class="form-control" placeholder="Contraseña" type="password">
-                                                        </div> <!-- input-group.// --> <!-- input-group.// -->
-                                            </div> <!-- form-group// -->
-                                      
-                                            <div class="form-group">
-                                                <button type="submit" class="btn btn-secondary submit_btn btn-block" style="height:50px"> Subscribirse  </button>
-                                               <span> <a href="login.php"> Logearse</a></span>
-                                                <div >
-                                                    
-                                                    <?php if(isset($_GET['usuarioNoLogeado']) && !empty($_GET['usuarioNoLogeado'])) {
-                                                        $siLogueo = $_GET['usuarioNoLogeado'];
-                                                        if($siLogueo == "no") { 
-                                                            echo "No se pudo registrar.";
+		}
+	} else {
+		// http://localhost:8080/proyecto-master/createUser.php
+		$mensaje2 = NULL;
+	}
+    
 
-                                                        }
-                                                    }else {
-                                                        $siLogueo = "";
-                                                    }
-                                                           ?>
-                                                </div>
-                                            </div> <!-- form-group// -->
-                                            
-                                                
-                                                       
-                                                    
-                                        </form>
-                                </div> <!-- card.// -->
-                                            
-                                    </aside> <!-- col.// -->
-                            </div> <!-- row.// -->
-                        </div>
-                       
-                         
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+	?>
+
+
+	<div class="container" style="margin-top:200px;margin-bottom:100px">
+	
+		<div class="row">
+			<div class="col-12">
+				<form method="post" action="registrousuario2.php">
+				<div class="form-group">
+					<p style="font-size:20px"> Usuario </p>
+                   
+					<input required type="text" name="usuario" class="form-control">
+
+				</div>
+                <div class="form-group">
+                <p style="font-size:20px"> Email </p>
+                   
+					<input required type="email" name="email" class="form-control">
+	
+				</div>
+				<div class="form-group">
+                <p style="font-size:20px"> Contraseña </p>
+                   
+					<input  required type="password" id="p1" name="password" class="form-control">
+					
+				</div>
+                <div class="form-group">
+                <p style="font-size:20px"> Repetir contraseña </p>
+                
+                   
+					<input  required type="password" id="p2" name="password2" class="form-control">
+                    <span id="error2"></span>
+					
+				</div>
+                
+				<button  type="submit" class="btn btn-dark btn-block">Registrar</button>
+			</form>
+			</div>
+			<div class="alert alert-primary" role="alert">
+  				<?php 
+
+                      echo $mensaje;
+                      echo $mensaje2;
+  				?>
+			</div>
+		</div>
+
+	</div>
+
+
         <!--================End Static Area =================-->
 
         <!--================Footer Area =================-->
@@ -269,6 +269,8 @@
         <script src="vendors/tweet/script.js"></script>
 
         <script src="js/theme.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="js/ajax2.js"></script>
     </body>
 </html>
 

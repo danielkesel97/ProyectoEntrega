@@ -42,6 +42,8 @@
         <link rel="stylesheet" href="css/CSS.css">
     </head>
        <body style="">
+       <?php session_start();
+       ?>
        <header class="main_menu_area" style="background:black;">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <a class="navbar-brand" href="#"> <p style="color:white;font-size:40px">LagerHaus</p></a>
@@ -53,14 +55,33 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
-                        <li class="nav-item active"><a class="nav-link" href="index.html">Inicio</a></li>
-                        <li class="nav-item"><a class="nav-link" href="carta.php">Carta</a></li>
-                        <li class="nav-item"><a  href="static.html">Promociones</a></li>
-                        <li class="nav-item"><a class="nav-link" href="contact-us.html">Locales</a></li>
+                        <li class="nav-item active"><a class="nav-link" href="index.php">Inicio</a></li>
+                        <li class="nav-item"><a class="nav-link" href="carta.php">Carta</a></li>       
+                        <li class="nav-item"><a class="nav-link" href="contact-us.php">Locales</a></li>
+                        <li class="nav-item"><a class="nav-link" href="login.php">
+                        <?php  
+                        if(isset($_SESSION['idUsuario'])) {
+                            $nombreUsuario= $_SESSION['nombre'];
+                            echo "Bienvenido " .$nombreUsuario;
+                              
+
+                             } else{
+                                 echo "Iniciar Sesion" ;
+                             }
+                             
+                        ?>
+                         </a></li>
+                         <li class="nav-item"><a class="nav-link" href="logout.php"> 
+                             
+                         <?php  
+                        if(isset($_SESSION['idUsuario'])) {
+                            $nombreUsuario= $_SESSION['nombre'];
+                            echo "Cerrar Sesion ";
+                             }       
+                        ?>
+                         </a></li>
                     </ul>
-                    <ul class="navbar-nav justify-content-end">
-                        <li><a href="#"><i class="icon_search"></i></a></li>
-                        <li><a href="Login.html"><i class="icon_bag_alt"></i></a></li>
+                   
                     </ul>
                 </div>
             </nav>
@@ -73,8 +94,8 @@
         <section class="latest_news_area p_100 mt-5">
             <div class="container">
                 <div class="b_center_title">
-                    <h2>Productos</h2>
-                    <p>We Are A Creative Digital Agency. Focused on Growing Brands Online</p>
+                    <h2>NUESTRO MENU</h2>
+                   
                 </div>
                 <div class="l_news_inner">
                     <div class="row">
@@ -86,7 +107,7 @@
                     ?>
                         <div class="col-lg-4 col-md-6">
                             <div class="l_news_item">
-                                <div class="l_news_img"><?php echo $informacion['imagen'] ?> </div>
+                               
                                 <div class="l_news_content">
                                     <a href="#"><h4 class='text-center'><?php echo $informacion['comida']; ?></h4></a>
                                     <p class='text-center'><?php echo $informacion['descripcion']; ?>.</p>

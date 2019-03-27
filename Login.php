@@ -56,10 +56,9 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
-                        <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Carta</a></li>
-                        <li class="nav-item"><a  href="static.html">Promociones</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Locales</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index.php">Inicio</a></li>
+                        <li class="nav-item"><a class="nav-link" href="carta.php">Carta</a></li>                   
+                        <li class="nav-item"><a class="nav-link" href="contact-us.php">Locales</a></li>
                       
                     </ul>
                     <ul class="navbar-nav justify-content-end">
@@ -76,50 +75,31 @@
         <!--================End Banner Area =================-->
 
         <!--================Static Area =================-->
-        <section class="static_area mt-5 text-center" style="background:white">
-            <div class="container-fluid text-center" style="">
-                <div class="static_inner text-center">
-                    <div class="row text-center" style="width:50%; margin:0 auto;">
-                        <div class="col-12" >
-                            <div class="card ">
-                                <article class="card-body">
-                                    <h4 class="card-title text-center mb-4 mt-1">Sign in</h4>
-                                     <hr>
-                                              
-                                        <form>
-                                            <div class="form-group">
-                                               
-                                            <input name="mail" class="form-control" placeholder="Mail" type="email">
-                                            <br>     
-                                             <input name="password" class="form-control" placeholder="*****" type="password">
-                                        
-                                           
-                                                    
-                                         
-                                            </div> <!-- form-group// -->
-                                      
-                                            <div class="form-group">
-                                                <button type="submit" class="btn btn-secondary submit_btn btn-block" style="height:50px"> Login  </button>
-                                            </div> <!-- form-group// -->
-                                                <p ><a href="#" class="btn">¿Olvidaste tu contraseña?</a> <a href="CreateUser.php" class="btn btn-secondary submit_btn" >Subscribirse </a></p>
-                                                
-                                                       
-                                                    
-                                        </form>
-                                </div> <!-- card.// -->
-                                            
-                                    </aside> <!-- col.// -->
-                            </div> <!-- row.// -->
-                        </div>
-                       
-                         
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        
+	<div class="container" style="margin-top:150px;margin-bottom:100px">
+	
+    <div class="row">
+        <div class="col-12">
+            <form method="post" action="loginusuario.php">
+            <div class="form-group">
+                Usuario: 
+                <input type="text" name="usuario" class="form-control">
+
             </div>
-        </section>
+            <div class="form-group">
+                Contraseña: 
+                <input type="password" name="password" class="form-control">
+                
+            </div>
+            <button type="submit" class="btn btn-dark btn-block">Ingresar</button>
+            <br>
+            <a href="CreateUser.php" class="btn btn-warning"> Ó registrarse</a>
+        </form>
+        </div>
+
+    </div>
+
+</div>
         <!--================End Static Area =================-->
 
         <!--================Footer Area =================-->
@@ -130,14 +110,10 @@
                         <div class="col-lg-3 col-md-6">
                             <aside class="f_widget subscribe_widget">
                                 <div class="f_w_title">
-                                    <h3>Subscribirse</h3>
+                                    <h3>Nuestras redes</h3>
                                 </div>
-                                <div class="input-group">
-                                    <input type="email" class="form-control" placeholder="E-mail" aria-label="E-mail">
-                                    <span class="input-group-btn">
-                                        <button class="btn btn-secondary submit_btn" type="button">Subscribe</button>
-                                    </span>
-                                </div>
+                                <p>Seguinos y enterate de las mejores novedades.</p>
+                               
                                 <ul>
                                     <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                                     <li><a href="#"><i class="fa fa-twitter"></i></a></li>
@@ -150,70 +126,39 @@
                         <div class="col-lg-3 col-md-6">
                             <aside class="f_widget twitter_widget">
                                 <div class="f_w_title">
-                                    <h3>Twitter Feed</h3>
+                                  
                                 </div>
-                                <div class="tweets_feed"></div>
+                             
                             </aside>
                         </div>
                         <div class="col-lg-3 col-md-6">
                             <aside class="f_widget categories_widget">
                                 <div class="f_w_title">
-                                    <h3>Link Categories</h3>
+                                    
                                 </div>
                                 <ul>
-                                    <li><a href="#"><i class="fa fa-angle-double-right" aria-hidden="true"></i>Agency</a></li>
-                                    <li><a href="#"><i class="fa fa-angle-double-right" aria-hidden="true"></i>Studio</a></li>
-                                    <li><a href="#"><i class="fa fa-angle-double-right" aria-hidden="true"></i>Studio</a></li>
-                                    <li><a href="#"><i class="fa fa-angle-double-right" aria-hidden="true"></i>Blogs</a></li>
-                                    <li><a href="#"><i class="fa fa-angle-double-right" aria-hidden="true"></i>Shop</a></li>
+                                  
                                 </ul>
                                 <ul>
-                                    <li><a href="#"><i class="fa fa-angle-double-right" aria-hidden="true"></i>Home</a></li>
-                                    <li><a href="#"><i class="fa fa-angle-double-right" aria-hidden="true"></i>About</a></li>
-                                    <li><a href="#"><i class="fa fa-angle-double-right" aria-hidden="true"></i>Services</a></li>
-                                    <li><a href="#"><i class="fa fa-angle-double-right" aria-hidden="true"></i>Work</a></li>
-                                    <li><a href="#"><i class="fa fa-angle-double-right" aria-hidden="true"></i>Privacy</a></li>
+                                   
                                 </ul>
                             </aside>
                         </div>
                         <div class="col-lg-3 col-md-6">
                             <aside class="f_widget contact_widget">
                                 <div class="f_w_title">
-                                    <h3>Contact Us</h3>
+                                    <h3>Contactanos</h3>
                                 </div>
                                 <a href="#">1 (800) 686-6688</a>
-                                <a href="#">info.deercreative@gmail.com</a>
-                                <p>40 Baria Sreet 133/2 <br />NewYork City, US</p>
-                                <h6>Open hours: 8.00-18.00 Mon-Fri</h6>
+                                <a href="#">LagerHaus@gmail.com</a>
+                                <p>Av beiro <br />Villa Devoto, CABA</p>
+                                
                             </aside>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="copy_right_area">
-                <div class="container">
-                    <div class="float-md-left">
-                        <h5>Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a></h5>
-                    </div>
-                    <div class="float-md-right">
-                        <ul class="nav">
-                            <li class="nav-item">
-                                <a class="nav-link active" href="#">Disclaimer</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Privacy</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Advertisement</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Contact us</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </footer>
+           
         <!--================End Footer Area =================-->
 
 
